@@ -3,8 +3,8 @@ FROM php:8.2-cli
 # Install pdo_mysql extension
 RUN apt-get update \
     && apt-get install -y default-libmysqlclient-dev \
-    && docker-php-ext-install pdo pdo_mysql mysqli \
-    && rm -rf /var/lib/apt/lists/*
+    && docker-php-ext-install pdo pdo_mysql mysqli bcmath \
+    && rm -rf /var/lib/apt/lists/*  
 
 # Copy project files
 COPY . /var/www/html/
