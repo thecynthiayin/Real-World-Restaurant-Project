@@ -1,10 +1,24 @@
 <?php
-// TEMPORARY DEBUG FILE - DELETE AFTER FIXING
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 echo "<pre>";
-echo "PHP version: " . PHP_VERSION . "\n\n";
+echo "PHP version: " . PHP_VERSION . "\n";
+echo "PHP SAPI: " . php_sapi_name() . "\n\n";
+
+echo "=== LOADED EXTENSIONS ===\n";
+$exts = get_loaded_extensions();
+sort($exts);
+echo implode(', ', $exts) . "\n\n";
+
+echo "=== PDO DRIVERS ===\n";
+if (extension_loaded('PDO')) {
+    echo "PDO loaded: YES\n";
+    echo "Available drivers: " . implode(', ', PDO::getAvailableDrivers()) . "\n";
+} else {
+    echo "PDO loaded: NO\n";
+}
+echo "pdo_mysql loaded: " . (extension_loaded('pdo_mysql') ? 'YES' : 'NO') . "\n\n";
 
 echo "=== ENV VARIABLES ===\n";
 $keys = ['DB_HOST','DB_PORT','DB_NAME','DB_USER','DB_PASS','MYSQLHOST','MYSQLPORT','MYSQLDATABASE','MYSQLUSER','MYSQLPASSWORD'];
