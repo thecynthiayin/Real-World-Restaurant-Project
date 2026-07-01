@@ -11,7 +11,7 @@
             </div>
             <div class="col-md-6">
                 <label class="form-label">Base URL</label>
-                <input type="text" class="form-control" id="qrBase" value="https://real-world-restaurant-project-production.up.railway.app/index.php">
+                <input type="text" class="form-control" id="qrBase" value="https://www.morningstar-huamak.com/index.php">
             </div>
             <div class="col-md-2 d-flex align-items-end">
                 <button class="btn btn-gold w-100" onclick="generateQRs()">Generate</button>
